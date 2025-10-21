@@ -1,0 +1,24 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    margin-top: 50px;
+    height: 100vh;           
+    width: 100vw; 
+}
+
+.DscTop {
+    width: 100%;
+}
+
+.form-center{
+    align-items: center;
+    align-content: center;
+}
+
+button{
+    margin-top: 10px !important;
+    border-radius: 5px !important;
+    border: 1px solid #000000;
+}

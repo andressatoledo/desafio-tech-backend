@@ -1,0 +1,60 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+
+    height: 100vh;           
+    width: 100vw; 
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+      
+    width: 100vw; 
+}
+
+
+.DscTop {
+    width: 100%;
+}
+
+.form-center{
+    align-items: center;
+    align-content: center;
+}
+
+button{
+    margin-top: 10px !important;
+    border-radius: 5px !important;
+    border: 1px solid #000000;
+}
+
+h3 {
+    margin-bottom: 20px;    
+}
+
+table {
+    margin-top: 20px;      
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #99c5f3;
+    color: #fff;
+}
+
+
+.botao-icone{
+    background-color: transparent;
+    font-size: 15px;
+}
