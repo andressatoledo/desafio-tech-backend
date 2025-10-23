@@ -1,8 +1,13 @@
 import { recuperarClientesService,recuperarClientesServiceById,criarClienteService,atualizarClienteService,deletarClienteServiceById} from "../services/cliente.service.js";
-import dotenv from "dotenv";
 
-dotenv.config();
 
+
+/**
+ * Recupera todos os clientes cadastrados.
+ * @param {Object} req - Objeto de requisição.
+ * @param {Object} res - Objeto de resposta.
+ * @returns {Promise<Object>} Retorna um JSON com os clientes ou mensagem de erro.
+ */
 export async function recuperarClientes(req, res) {
   try {
     const clienteData = await recuperarClientesService();
@@ -13,6 +18,12 @@ export async function recuperarClientes(req, res) {
   }
 }
 
+/**
+ * Recupera um cliente específico pelo ID.
+ * @param {Object} req - Objeto de requisição, contendo o ID no params.
+ * @param {Object} res - Objeto de resposta.
+ * @returns {Promise<Object>} Retorna um JSON com os dados do cliente ou mensagem de erro.
+ */
 export async function recuperarClientesById(req, res) {
   try {
     const clienteByIdData = await recuperarClientesServiceById(req.params.id);
@@ -23,6 +34,12 @@ export async function recuperarClientesById(req, res) {
   }
 }
 
+/**
+ * Cria um novo cliente.
+ * @param {Object} req - Objeto de requisição, contendo os dados do cliente no body.
+ * @param {Object} res - Objeto de resposta.
+ * @returns {Promise<Object>} Retorna mensagem de sucesso e dados do cliente criado ou mensagem de erro.
+ */
 export async function criarCliente(req, res) {
 
   try {
@@ -35,6 +52,12 @@ export async function criarCliente(req, res) {
   }
 }
 
+/**
+ * Atualiza os dados de um cliente existente pelo ID.
+ * @param {Object} req - Objeto de requisição, contendo o ID no params e os dados atualizados no body.
+ * @param {Object} res - Objeto de resposta.
+ * @returns {Promise<Object>} Retorna mensagem de sucesso e dados atualizados ou mensagem de erro.
+ */
 export async function atualizarCliente(req, res) {
   try {
     const clienteAtualizado = await atualizarClienteService(req.params.id,req.body);
@@ -45,7 +68,12 @@ export async function atualizarCliente(req, res) {
   }
 }
 
-
+/**
+ * Deleta um cliente pelo ID.
+ * @param {Object} req - Objeto de requisição, contendo o ID no params.
+ * @param {Object} res - Objeto de resposta.
+ * @returns {Promise<Object>} Retorna mensagem de sucesso se deletado, 404 se não encontrado ou mensagem de erro.
+ */
 export async function deletarCliente(req, res) {
   try {
     const hasAffectedRows = await deletarClienteServiceById(req.params.id);

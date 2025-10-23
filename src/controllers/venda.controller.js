@@ -1,6 +1,11 @@
 import { recuperarVendasService, recuperarVendasServiceById, criarVendaService, atualizarVendaService, deletarVendaServiceById } from "../services/venda.service.js";
 
-
+/**
+ * Recupera todas as vendas cadastradas.
+ * @param {Object} req - Objeto de requisição.
+ * @param {Object} res - Objeto de resposta.
+ * @returns {Promise<Object>} Retorna um JSON com as vendas ou mensagem de erro.
+ */
 export async function recuperarVendas(req, res) {
   try {
     const vendaData = await recuperarVendasService();
@@ -12,6 +17,13 @@ export async function recuperarVendas(req, res) {
   }
 }
 
+
+/**
+ * Recupera uma venda específica pelo ID.
+ * @param {Object} req - Objeto de requisição, contendo o ID no params.
+ * @param {Object} res - Objeto de resposta.
+ * @returns {Promise<Object>} Retorna um JSON com os dados da venda ou mensagem de erro.
+ */
 export async function recuperarVendasById(req, res) {
   try {
     const vendaByIdData = await recuperarVendasServiceById(req.params.id);
@@ -23,6 +35,12 @@ export async function recuperarVendasById(req, res) {
   }
 }
 
+/**
+ * Cria uma nova venda.
+ * @param {Object} req - Objeto de requisição, contendo os dados da venda no body.
+ * @param {Object} res - Objeto de resposta.
+ * @returns {Promise<Object>} Retorna mensagem de sucesso e dados da venda criado ou mensagem de erro.
+ */
 export async function criarVenda(req, res) {
   try {
     const vendaNova = await criarVendaService(req.body);
@@ -34,6 +52,12 @@ export async function criarVenda(req, res) {
   }
 }
 
+/**
+ * Atualiza os dados de uma venda existente pelo ID.
+ * @param {Object} req - Objeto de requisição, contendo o ID no params e os dados atualizados no body.
+ * @param {Object} res - Objeto de resposta.
+ * @returns {Promise<Object>} Retorna mensagem de sucesso e dados atualizados ou mensagem de erro.
+ */
 export async function atualizarVenda(req, res) {
   try {
 
@@ -47,6 +71,12 @@ export async function atualizarVenda(req, res) {
 }
 
 
+/**
+ * Deleta uma venda pelo ID.
+ * @param {Object} req - Objeto de requisição, contendo o ID no params.
+ * @param {Object} res - Objeto de resposta.
+ * @returns {Promise<Object>} Retorna mensagem de sucesso se deletado, 404 se não encontrado ou mensagem de erro.
+ */
 export async function deletarVenda(req, res) {
   try {
     const hasAffectedRows = await deletarVendaServiceById(req.params.id);

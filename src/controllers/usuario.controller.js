@@ -1,6 +1,13 @@
 import { recuperarUsuariosService,recuperarUsuariosServiceById,recuperarUsuarioServiceByEmail,validaLoginByUsuario,criarUsuarioService,atualizarUsuarioService,deletarUsuarioServiceById} from "../services/usuario.service.js";
 import { gerarToken } from "../utils/gerarToken.js";
 
+
+/**
+ * Recupera todos os usuários cadastrados.
+ * @param {Object} req - Objeto de requisição.
+ * @param {Object} res - Objeto de resposta.
+ * @returns {Promise<Object>} Retorna um JSON com os usuários ou mensagem de erro.
+ */
 export async function recuperarUsuarios(req, res) {
   try {
     const usuarioData = await recuperarUsuariosService();
@@ -12,6 +19,12 @@ export async function recuperarUsuarios(req, res) {
   }
 }
 
+/**
+ * Recupera um usuário específico pelo ID.
+ * @param {Object} req - Objeto de requisição, contendo o ID no params.
+ * @param {Object} res - Objeto de resposta.
+ * @returns {Promise<Object>} Retorna um JSON com os dados do usuário ou mensagem de erro.
+ */
 export async function recuperarUsuarioById(req, res) {
   try {
     const usuarioByIdData = await recuperarUsuariosServiceById(req.params.id);
@@ -24,6 +37,12 @@ export async function recuperarUsuarioById(req, res) {
   }
 }
 
+/**
+ * Recupera um cliente específico pelo E-mail.
+ * @param {Object} req - Objeto de requisição, contendo o E-mail no params.
+ * @param {Object} res - Objeto de resposta.
+ * @returns {Promise<Object>} Retorna um JSON com os dados do usuário ou mensagem de erro.
+ */
 export async function recuperarUsuariosByEmail(req, res) {
   try {
     const usuarioByEmailData = await recuperarUsuarioServiceByEmail(req.params.email);
@@ -35,6 +54,13 @@ export async function recuperarUsuariosByEmail(req, res) {
   }
 }
 
+/**
+ * Valida o login de um usuário.
+ * @param {Object} req - Objeto de requisição, contendo login(e-mail) e senha no body.
+ * @param {Object} res - Objeto de resposta.
+ * @returns {Promise<Object>} Retorna um JSON com token e dados do usuário (sem a senha) se o login for válido, 
+ *                            ou mensagem de erro caso login seja inválido.
+ */
 export async function validaLogin(req, res) {
   try {
 
@@ -54,7 +80,12 @@ export async function validaLogin(req, res) {
 }
 
 
-
+/**
+ * Cria um novo usuário.
+ * @param {Object} req - Objeto de requisição, contendo os dados do usuário no body.
+ * @param {Object} res - Objeto de resposta.
+ * @returns {Promise<Object>} Retorna mensagem de sucesso e dados do usuário criado ou mensagem de erro.
+ */
 export async function criarUsuario(req, res) {
 
   try {
@@ -67,6 +98,12 @@ export async function criarUsuario(req, res) {
   }
 }
 
+/**
+ * Atualiza os dados de um usuário existente pelo ID.
+ * @param {Object} req - Objeto de requisição, contendo o ID no params e os dados atualizados no body.
+ * @param {Object} res - Objeto de resposta.
+ * @returns {Promise<Object>} Retorna mensagem de sucesso e dados atualizados ou mensagem de erro.
+ */
 export async function atualizarUsuario(req, res) {
 
   try {
@@ -80,7 +117,12 @@ export async function atualizarUsuario(req, res) {
   }
 }
 
-
+/**
+ * Deleta um usuário pelo ID.
+ * @param {Object} req - Objeto de requisição, contendo o ID no params.
+ * @param {Object} res - Objeto de resposta.
+ * @returns {Promise<Object>} Retorna mensagem de sucesso se deletado, 404 se não encontrado ou mensagem de erro.
+ */
 export async function deletarUsuario(req, res) {
   try {
     const hasAffectedRows = await deletarUsuarioServiceById(req.params.id);
