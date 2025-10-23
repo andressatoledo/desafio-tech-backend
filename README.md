@@ -54,3 +54,26 @@ O sistema é organizado em **três camadas principais**:
 - **Backend:** Node.js, Express  
 - **Banco de Dados:** MySQL  
 - **Autenticação:** JWT, bcrypt  
+
+---
+
+## Importante:
+
+- **.env** Utilize .env.example como exemplo, e de preferência não utilize '-' ou '_' no nome do banco, possível dar errado ao criar o banco.
+
+
+---
+
+## Passo a passo para executar o projeto:
+
+1. cd src
+
+2. npm install
+
+3. Configurar o .env
+
+4. npm run iniciarDB
+
+5. npm run dev
+
+## Prontinho, agora é só testar o projeto. 
