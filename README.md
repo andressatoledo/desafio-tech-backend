@@ -17,13 +17,13 @@ O objetivo é demonstrar uma arquitetura em camadas, com frontend, backend e ban
 
 O sistema é organizado em **três camadas principais**:
 
-### 1️⃣ Frontend
+### Frontend
 - Desenvolvido com **HTML, CSS e JavaScript**.  
 - Responsável por apresentar informações ao usuário de forma clara e intuitiva.  
 - Permite **criar, ler, atualizar e deletar** dados via requisições HTTP (GET, POST, PUT, DELETE) em formato JSON.  
 - Toda interação do usuário passa por essa camada, que se comunica diretamente com o backend.
 
-### 2️⃣ Backend
+### Backend
 - Desenvolvido com **Node.js e Express**.  
 - Recebe requisições do frontend e realiza:  
   - **Validação de login**, comparando senhas criptografadas armazenadas no banco.  
@@ -31,7 +31,7 @@ O sistema é organizado em **três camadas principais**:
   - **Processamento da lógica de negócio**, como criação, atualização, recuperação e exclusão de dados.  
 - Retorna respostas ao frontend indicando sucesso ou falha em cada operação.
 
-### 3️⃣ Banco de Dados
+### Banco de Dados
 - Implementado em **MySQL**.  
 - Armazena informações de usuários, clientes e vendas.  
 - A comunicação com o backend é feita via **queries parametrizadas**, utilizando **pool de conexão**.  
